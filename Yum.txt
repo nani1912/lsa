@@ -1,0 +1,26 @@
+
+
+## Author Ranga
+## YUM configration setup 
+
+
+
+
+YUM Configration:
+
+
+1. Mount the CD
+2. Goto the Packages directory and Install below packages
+    a. rpm -ivh vsftpd* , rpm -ivh deltarpm* , rpm -ivh python-deltarpm*
+    deltarpm* and python-deltarpm* these two packages dependency files for createrepo command
+3. Install createrepo using rpm -ivh createrepo*    [createrepo is a program that creates a repomd (xml-based rpm metadata) repository from a set of rpms.]
+4. copy the files from CD to our local directory [c -rvf source destination (newly created local directory)]
+5. createrepo --database /local repository  
+
+[-d --database : Generate sqlite databases for use with yum. This is now the default.]
+[--no-database  : Do not generate sqlite databases in the repository.]
+
+6. Now create yum config file  [vim /etc/repos.d/basic.repo]
+7. Edit config file
+8. check yum repolist
+9. yum update
